@@ -46,9 +46,11 @@ const Post = ({ post }: PostProps) => {
           <div className="ml-2">
             <h1 className="text-sm font-bold">
               {fullname}{" "}
-              <Badge variant={"outline"} className="bg-blue-300 text-white">
-                You
-              </Badge>
+              {post.user.userId === authUser.id && (
+                <Badge variant={"outline"} className="bg-blue-300 text-white">
+                  You
+                </Badge>
+              )}
             </h1>
             <p className="text-xs text-gray-500">
               {user ? user?.username || "user" : "@user"}

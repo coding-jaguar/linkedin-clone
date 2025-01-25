@@ -1,5 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import Image from "next/image";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 const ProfilePhoto = ({ src }: { src: string }) => {
   return (

@@ -1,4 +1,4 @@
-import { SignInButton, useAuth } from "@clerk/nextjs";
+import { SignInButton } from "@clerk/nextjs";
 
 export default function UnAuthFeed() {
   return (

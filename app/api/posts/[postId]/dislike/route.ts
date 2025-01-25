@@ -1,14 +1,13 @@
 import connectDB from "@/lib/db";
 import { Post } from "@/models/post.model";
-import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (
   req: NextRequest,
-  context: { params: { postId: string } }
+  { params }: { params: Promise<{ postId: string }> }
 ) => {
   try {
-    const { postId } = await context.params;
+    const { postId } = await params;
 
     await connectDB();
     const { userId } = await req.json();

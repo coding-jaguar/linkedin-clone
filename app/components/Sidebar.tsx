@@ -2,6 +2,7 @@ import { User } from "@clerk/nextjs/server";
 import Image from "next/image";
 import ProfilePhoto from "./shared/ProfilePhoto";
 import { getAllPostsAction } from "@/lib/serveractions";
+import { IPostDocument } from "@/models/post.model";
 
 const Sidebar = async ({ user }: { user: User | null }) => {
   const posts = await getAllPostsAction();
@@ -39,7 +40,8 @@ const Sidebar = async ({ user }: { user: User | null }) => {
             <p>Post Impression</p>
             <p className="text-blue-500 font-bold">
               {posts.reduce(
-                (acc: any, post: any) => acc + post.likes.length,
+                (acc: number, post: IPostDocument) =>
+                  acc + (post.likes?.length ?? 0),
                 0
               )}
             </p>

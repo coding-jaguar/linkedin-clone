@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type PostContentProps = {
   description: string;
   imageUrl?: string;
@@ -16,7 +18,13 @@ const PostContent = ({ description, imageUrl }: PostContentProps) => {
       <p className="my-3 px-4">{description}</p>
       {imageUrl && (
         <div className="my-1 flex justify-center h-100">
-          <img src={imageUrl} alt="post" className="p-4" />
+          <Image
+            src={imageUrl}
+            alt="post"
+            className="p-4"
+            width={500}
+            height={500}
+          />
         </div>
       )}
     </div>

@@ -7,7 +7,6 @@ import { currentUser } from "@clerk/nextjs/server";
 import { v2 as cloudinary } from "cloudinary";
 import connectDB from "./db";
 import { revalidatePath } from "next/cache";
-import { log } from "console";
 
 // Cloudinary Configuration
 cloudinary.config({

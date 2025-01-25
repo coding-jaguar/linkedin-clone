@@ -1,5 +1,10 @@
 import mongoose from "mongoose";
 
+// Import all models to ensure they are registered with Mongoose
+import "@/models/user.model";
+import "@/models/comment.model";
+import "@/models/post.model";
+
 let isConnected = false; // Tracks connection state
 
 const connectDB = async (): Promise<typeof mongoose> => {

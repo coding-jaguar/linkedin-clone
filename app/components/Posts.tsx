@@ -18,10 +18,10 @@ const Posts = async () => {
 
   return (
     <div className="md:mx-0 mx-2">
-      {posts.map((post) => (
+      {posts.map((post: IPostDocument, idx: number) => (
         <Post
           post={{ ...post, user: post.user as IUser } as PostWithUser}
-          key={post.id}
+          key={idx}
         />
       ))}
     </div>

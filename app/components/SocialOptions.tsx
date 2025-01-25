@@ -3,7 +3,7 @@ import { IPostDocument } from "@/models/post.model";
 import { IUserDocument } from "@/models/user.model";
 import { useUser } from "@clerk/nextjs";
 import { MessageCircleHeart, Repeat, Send, ThumbsUp } from "lucide-react";
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
 import Comments from "./Comments";
 import CommentsInput from "./CommentInput";
 import { ICommentDocument } from "@/models/comment.model";

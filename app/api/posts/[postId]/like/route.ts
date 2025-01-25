@@ -5,13 +5,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async (
   req: NextRequest,
-  context: { params: { postId: string } }
+  { params }: { params: Promise<{ postId: string }> }
 ) => {
   try {
     await connectDB();
 
-    // Await the params before accessing postId
-    const { postId } = context.params;
+    const { postId } = await params;
 
     const post = await Post.findById(postId);
     if (!post) {
@@ -30,14 +29,14 @@ export const GET = async (
 
 export const POST = async (
   req: NextRequest,
-  context: { params: { postId: string } }
+  { params }: { params: Promise<{ postId: string }> }
 ) => {
   console.log("called post likes");
   try {
     await connectDB();
 
     // Await the params before accessing postId
-    const { postId } = await context.params;
+    const { postId } = await params;
 
     const { userId } = await req.json();
     const post = await Post.findById({ _id: postId });
